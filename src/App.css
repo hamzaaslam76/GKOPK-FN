@@ -1,10 +1,20 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .App {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  body {
+    background-color: #27bbad !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

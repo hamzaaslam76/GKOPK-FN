@@ -1,0 +1,195 @@
+#home-page__hero-section {
+  background-color: #f7fafb;
+  position: relative;
+}
+
+.home-page__hero-section-content {
+  width: 38.625rem;
+  margin: 0 auto;
+}
+
+.home-page__hero-section-heading {
+  color: #2e382e;
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 4.5rem;
+  text-align: center;
+}
+
+.home-page__hero-section-heading-highlight {
+  color: #27bbad;
+}
+
+.home-page__hero-section-content-input .ant-input-wrapper,
+.home-page__hero-section-content-input .ant-input {
+  height: 5rem;
+}
+
+.home-page__hero-section-content-input .ant-input-group-addon {
+  background-color: white !important;
+  border: 0px;
+  font-size: 1rem;
+}
+
+.home-page__hero-section-content-input .ant-input-wrapper {
+  padding: 0 3rem;
+  border-radius: 10px;
+  background: white;
+}
+
+.home-page__hero-section-content-input .ant-input {
+  border: 0px;
+  color: #999999;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.313rem;
+}
+
+.home-page__hero-section-content-input .ant-input:focus,
+.home-page__hero-section-content-input .ant-input-focused {
+  box-shadow: none;
+}
+
+.home-page__hero-section-content-button {
+  height: 3rem;
+  width: 7.688rem;
+  border-radius: 0.625rem;
+  background-color: #27bbad;
+
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.313rem;
+  text-align: center;
+}
+
+#home-page__hero-section {
+  padding: 3.75rem 0 11.875rem 0;
+}
+
+.home-page__hero-section-card-container {
+  position: absolute;
+  bottom: -320px;
+  width: 100%;
+}
+
+#home-page__ongoing-events-section {
+  margin-top: 12.813rem;
+  padding-bottom: 50px;
+}
+
+.home-page__ongoing-events-section-container {
+  background-color: #f7fafb;
+  padding: 2.5rem;
+
+  border-radius: 10px;
+}
+
+.home-page__ongoing-events-section-heading {
+  color: #2e382e;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 3.75rem;
+  text-align: center;
+}
+
+.home-page__ongoing-events-section-list-item .ant-list-item-meta-title {
+  opacity: 0.5;
+  color: #2e382e;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.813rem;
+}
+
+.home-page__ongoing-events-section-list-item .ant-list-item-meta-description {
+  color: #27bbad;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.813rem;
+}
+
+.home-page__ongoing-events-section-list-item {
+  background-color: #ffffff;
+  margin: 1rem 0px;
+  border-radius: 10px;
+}
+
+.home-page__ongoing-events-section-list .ant-list-item-meta {
+  align-items: center;
+}
+
+.ant-list-item-meta-avatar {
+  padding: 10px;
+  margin: 0px 1rem;
+  border-radius: 10px;
+  background-color: rgba(113, 201, 206, 0.08);
+}
+
+.learn-about-pakistan-section-heading {
+  color: #2e382e;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 3.75rem;
+  text-align: center;
+}
+
+.learn-about-pakistan-section-heading-highlight {
+  color: #27bbad;
+}
+
+.learn-about-pakistan-section-sub-heading {
+  color: #969696;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.813rem;
+  text-align: center;
+  margin: 2rem 0px;
+}
+
+.learn-about-pakistan-section-card-container {
+  margin-bottom: 2rem;
+}
+
+#any-questions-section {
+  padding: 60px 0px;
+}
+
+.any-questions-section-container {
+  padding: 60px;
+  border-radius: 10px;
+  background-color: #27bbad;
+}
+
+.any-questions-section-heading {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 3.75rem;
+  text-align: center;
+}
+
+.any-questions-section-text {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  line-height: 2.125rem;
+  text-align: center;
+}

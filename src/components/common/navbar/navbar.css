@@ -1,0 +1,276 @@
+.ant-layout-header {
+  background: transparent !important;
+  height: 84px !important;
+  padding: 0 30px !important;
+  position: relative;
+  z-index: 1000;
+}
+
+.ant-affix .ant-layout-header {
+  opacity: 0.92;
+}
+
+.hamburger-menu .hamburger-menu-div {
+  position: absolute !important;
+  right: 0;
+  top: 35px;
+  width: 100%;
+}
+
+.hamburger-menu-button {
+  position: absolute !important;
+  right: 0;
+  top: 50%;
+  margin-top: -13px;
+  background: #eeee !important;
+  border-color: #174cb8 !important;
+  z-index: 100;
+}
+
+.hamburger-menu-button span {
+  color: #174cb8 !important;
+}
+
+.hamburger-menu .ant-menu-vertical {
+  width: 100% !important;
+  opacity: 0.92;
+  z-index: 1;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #fefefe !important;
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 50px;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.black-navbar .ant-menu-vertical {
+  border: 1px solid #174cb8 !important;
+}
+.hamburger-menu .showmenu {
+  margin-top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.white-navbar .ant-menu-vertical {
+  background-color: #eee !important;
+  z-index: 100;
+  border: 1px solid #174cb8 !important;
+}
+
+.black-navbar .ant-menu-vertical {
+  background-color: #eee !important;
+  z-index: 100;
+}
+
+.hamburger-menu .ant-menu-vertical li,
+.hamburger-menu .ant-menu-vertical li a {
+  padding-left: 0px;
+}
+
+.hamburger-menu .ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  top: 52px !important;
+}
+
+.header .ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  width: 90%;
+  justify-content: flex-end;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.header .navbar-logo-img {
+  /* position: absolute;
+  top: 6px;
+  left: 25px;
+  width: 80px; */
+}
+
+.header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+  padding: 0 25px;
+}
+
+.white-navbar .ant-menu-dark .ant-menu-item,
+.white-navbar .ant-menu-dark .ant-menu-item-group-title,
+.white-navbar .ant-menu-dark .ant-menu-item > a,
+.white-navbar .ant-menu-dark .ant-menu-item > span > a,
+.white-navbar .anticon {
+  color: #ffffff;
+}
+
+.white-navbar {
+  background: #ffffff !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.11) !important;
+}
+
+.black-navbar .ant-menu-item-selected a {
+  color: #174cb8 !important;
+}
+
+.black-navbar {
+  background: #f7fafb !important;
+}
+
+.black-navbar .ant-menu-dark .ant-menu-item,
+.black-navbar .ant-menu-dark .ant-menu-item-group-title,
+.black-navbar .ant-menu-dark .ant-menu-item > a,
+.black-navbar .ant-menu-dark .ant-menu-item > span > a,
+.black-navbar .anticon {
+  color: #222222;
+}
+
+.black-navbar .ant-menu-horizontal > .ant-menu-item a:hover {
+  color: #27bbad !important;
+}
+
+.overlap-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+/* .black-navbar li:hover a{
+  color :#174cb8 !important
+} */
+
+.header .ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  background: transparent;
+}
+
+.header .ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: transparent !important;
+}
+/* 
+.white-header .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: transparent;
+} */
+
+.header .ant-menu-title-content a {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  color: #999999 !important;
+}
+
+.header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: transparent !important;
+}
+
+.header .ant-menu-item:hover a {
+  color: #000 !important;
+}
+
+.header .ant-menu-item-selected a,
+.header .ant-menu-item-selected:hover a {
+  color: #27bbad !important;
+  cursor: auto;
+}
+
+@media only screen and (max-width: 1600px) {
+  .header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0 13px;
+  }
+
+  .ant-layout-header {
+    padding: 0 25px !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header .ant-menu-title-content a {
+    font-size: 15px;
+  }
+
+  .header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0 19px;
+  }
+
+  .ant-layout-header {
+    padding: 0 20px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .header .ant-menu-title-content a {
+    font-size: 14px;
+  }
+
+  .header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0 16px;
+  }
+
+  .ant-layout-header {
+    padding: 0 15px !important;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .header .ant-menu-title-content a {
+    font-size: 14px;
+  }
+
+  .header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0 12px;
+  }
+
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    width: 62%;
+  }
+
+  .header .ant-menu-title-content a {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .header .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    width: 50%;
+  }
+
+  .ant-layout-header {
+    padding: 0 25px !important;
+    height: 90px !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .header .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    width: 33%;
+  }
+}

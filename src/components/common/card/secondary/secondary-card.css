@@ -1,0 +1,59 @@
+.secondary-card {
+  padding: 23px 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
+}
+
+.secondary-card .ant-card-cover {
+  display: inline-block;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: rgba(113, 201, 206, 0.08);
+}
+
+.secondary-card .ant-card-cover img {
+  width: inherit;
+}
+
+.secondary-card .ant-card-meta-title {
+  color: #323232;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.875rem;
+}
+
+.secondary-card .ant-card-body {
+  padding: 24px 0px;
+}
+
+.secondary-card .ant-card-actions {
+  background-color: #27bbad;
+  border-top: 0px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.563rem;
+  opacity: 0.9;
+}
+
+.secondary-card .ant-card-actions .ant-space-item {
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+.secondary-card .ant-card-actions > li {
+  text-align: left;
+}
+
+.secondary-card .ant-card-meta-description {
+  color: #969696;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.563rem;
+}
