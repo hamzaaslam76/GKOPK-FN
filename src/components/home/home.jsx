@@ -50,7 +50,7 @@ return(
          <PrimaryCard image={mostRepeatedImage} title={"Most Repeated Q/A"}/>
             </Col>
             <Col xs={6}>
-         <PrimaryCard image={pastPapersImage} title={"Past Papers"}/>
+         <PrimaryCard image={pastPapersImage}  title={"Past Papers"}/>
             </Col>
             <Col xs={6}>
          <PrimaryCard image={essayOutlineImage} title={"Essay Outlines"}/>
