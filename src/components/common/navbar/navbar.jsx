@@ -16,8 +16,15 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
     setNavSelectedKey(value.key);
   };
   const [collapsed, setCollapsed] = useState(true);
+  const [papersDrawerVisible, setPapersDrawerVisible] = useState(false);
   const [essayDrawerVisible, setEssayDrawerVisible] = useState(false);
   const [categoriesDrawerVisible, setCategoriesDrawerVisible] = useState(false);
+
+  const closeDrawers = () => {
+    setCategoriesDrawerVisible(false);
+    setEssayDrawerVisible(false);
+    setPapersDrawerVisible(false);
+  }
 
   return (
     <Header className={`header ${isHamburger ? "hamburger-menu" : ""} ${!collapsed ? "show-hamburger-menu" : ""}  ${className}`}>
@@ -43,37 +50,38 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
             onSelect={handleMenuSelect}
           >
             <Menu.Item key="1">
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={() => {closeDrawers()}}>Home</Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="2" onClick={() => {closeDrawers()}}>
               <Link to="/about">About Us</Link>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="3" onClick={() => {closeDrawers()}}>
               <Link to="/ongoing-events">Ongoing Events</Link>
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="4" onClick={() => {closeDrawers()}}>
             <Link to="/most-repeated">Most Repeated</Link>
             </Menu.Item>
-            <Menu.Item key="5">
+            <Menu.Item key="5"
+             onClick={() => {setPapersDrawerVisible(!papersDrawerVisible); setEssayDrawerVisible(false); setCategoriesDrawerVisible(false);}}>
             <Link to="/past-papers">Past Papers<DownOutlined /></Link>
             </Menu.Item>
             <Menu.Item key="6" 
-                        onMouseEnter={() => {setEssayDrawerVisible(true); setCategoriesDrawerVisible(false);}}
+                        onClick={() => {setEssayDrawerVisible(!essayDrawerVisible); setPapersDrawerVisible(false); setCategoriesDrawerVisible(false);}}
                         >
               <Link to="/essays">Essays<DownOutlined /></Link>
             </Menu.Item>
             <Menu.Item key="7"  
-            onMouseEnter={() => {setCategoriesDrawerVisible(true); setEssayDrawerVisible(false);}}
+            onClick={() => {setCategoriesDrawerVisible(!categoriesDrawerVisible); setPapersDrawerVisible(false); setEssayDrawerVisible(false);}}
             >
               <Link to="/categories">Categories<DownOutlined /></Link>
             </Menu.Item>
           </Menu>
         </div>
+
         <Drawer
         className="navigation-drawer"
           // title="Basic Drawer"
           placement={"top"}
-          destroyOnClose={true}
           closable={false}
           onClose={() => {setEssayDrawerVisible(false)}}
           visible={essayDrawerVisible}
@@ -143,6 +151,107 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
               </Col>
               <Col className="categories-drawer__col" span={6}>
                 <img src={AgricultureImage} className="categories-drawer__image"/><p className="categories-drawer__text">Agriculture Sector</p>
+                </Col>
+              </Row>
+               
+            </Col>
+          </Row>
+        </Drawer>
+
+        <Drawer
+        className="navigation-drawer"
+          // title="Basic Drawer"
+          placement={"top"}
+          destroyOnClose={true}
+          closable={false}
+          onClose={() => {setPapersDrawerVisible(false)}}
+          visible={papersDrawerVisible}
+          key={"papersdrawer"}
+        >
+          <Row>
+            <Col span={24}>
+              <Row>
+                <Col span={6}>
+                <p className="navigation-drawer-heading">
+                ENGLISH PRECIS CSS
+              </p>
+            <ul className="navigation-drawer-list">
+                <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+                </Col>
+                <Col span={6}>
+                <p className="navigation-drawer-heading">
+                CURRENT AFFAIRS CSS
+              </p>
+            <ul className="navigation-drawer-list">           
+                 <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+                </Col>
+                <Col span={6}>
+                <p className="navigation-drawer-heading">
+                PAKISTAN AFFAIRS CSS
+              </p>
+            <ul className="navigation-drawer-list">
+            <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+                </Col>
+                <Col span={6}>
+                <p className="navigation-drawer-heading">
+                PMS KPK SCREENING
+              </p>
+            <ul className="navigation-drawer-list">
+            <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+                </Col>
+              </Row>
+            </Col>
+            <Col span={24}>
+              <Row>
+              <Col span={6}>
+              <p className="navigation-drawer-heading">
+                ISLAMIC STUDIES CSS
+              </p>
+            <ul className="navigation-drawer-list">
+            <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+              </Col>
+              <Col span={6}>
+              <p className="navigation-drawer-heading">
+                INSPECTOR FBR
+              </p>
+            <ul className="navigation-drawer-list">
+            <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
+                </Col>
+
+                <Col span={6}>
+              <p className="navigation-drawer-heading">
+                AD MOD
+              </p>
+            <ul className="navigation-drawer-list">
+            <li className="navigation-drawer-item">2019</li>
+                <li className="navigation-drawer-item">2020</li>
+                <li className="navigation-drawer-item">2021</li>
+                
+              </ul>
                 </Col>
               </Row>
                

@@ -1,6 +1,6 @@
 .ant-layout-header {
   background: transparent !important;
-  height: 84px !important;
+  height: 91px !important;
   padding: 0 30px !important;
   position: relative;
   z-index: 1000;
@@ -198,9 +198,9 @@
 /* ------drawer--------- */
 
 .ant-drawer-open{
-  height : 88% !important;
+  height : 92% !important;
   top : 90px !important;
-  left: -23px !important;
+  left: -27px !important;
 }
 
 .navigation-drawer{
