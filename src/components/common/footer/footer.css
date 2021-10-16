@@ -1,0 +1,14 @@
+#gkopk-footer, #gkopk-footer a {
+    color: #FFFFFF;
+    font-family: "Poppins",sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+    padding: 8px 0;
+    background-color: #27BBAD;
+}
+
+.footer-nav-col{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,31 @@
+.about-header{
+padding: 75px 0 110px 0;
+background-color: #F7FAFB;
+}
+
+.about-header__heading{
+    color: #333333;
+    font-family: "Poppins",sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 4.5rem;
+    text-align: center;
+}
+
+.about-content{
+    padding: 110px 0px;
+}
+
+.about-content__col-text{
+    color: #333333;
+  font-family: "Poppins",sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.813rem;
+  text-align: justify;
+}
+
+.primary-color{
+    color: #27BBAD;
+}

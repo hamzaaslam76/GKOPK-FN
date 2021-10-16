@@ -1,5 +1,5 @@
 import { Button, Card, Col, Input, Row,List, Avatar  } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import "./home.css";
 import {SearchOutlined} from "@ant-design/icons";
 import PrimaryCard from '../common/card/primary/primary-card';
@@ -16,24 +16,55 @@ import SecondaryCard from '../common/card/secondary/secondary-card';
 function Home(){
     
 const { Search } = Input;
-
-const onSearch = value => console.log(value);
+const [answerKey, setAnswerKey] = useState([]);
 
 const data = [
    {
-     title: 'When did New Zealand Cricket Team decide to cancel the tour?',
-     description : ''
+     question: 'Question 1',
+     key : "1",
+     answer : "helllo this is answer 1"
    },
    {
-     title: 'Ant Design Title 2',
+      question: 'Question 2',
+     key : "2",
+     answer : "helllo this is answer 2"
    },
    {
-     title: 'Ant Design Title 3',
+      question: 'Question 3',
+     key : "3",
+     answer : "helllo this is answer 3"
    },
    {
-     title: 'Ant Design Title 4',
+      question: 'Question 4',
+     key : "4",
+     answer : "helllo this is answer 4"
    },
  ];
+
+ const hideAnswer= (item) => {
+   setAnswerKey(answerKey.filter(key => key != item.key));
+ }
+
+ const showAnswer=(item) => {
+   setAnswerKey([...answerKey,item.key])
+ }
+
+ const getAnswer =  (item) => {
+    if(answerKey.findIndex(key => key == item.key) != -1 ){
+      return(
+         <div><span className="list-item-answer">{item.answer}</span><br/>
+   <span className="list-item-link-button" onClick={() => {hideAnswer(item)}}>
+         Hide answer
+         </span>
+         </div>
+      )
+    }else{
+       return(<span onClick={() => {showAnswer(item)}} className="list-item-link-button">
+          Show answer
+          </span>
+          )
+    }
+ }
 
 return(
 <>
@@ -73,8 +104,8 @@ return(
       <List.Item className="home-page__ongoing-events-section-list-item">
         <List.Item.Meta
           avatar={<Avatar src={ecosystemImage} />}
-          title={item.title}
-          description="Show Answer"
+          title={item.question}
+          description={getAnswer(item)}
         />
       </List.Item>
     )}
