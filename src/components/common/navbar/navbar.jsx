@@ -16,7 +16,7 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
     setNavSelectedKey(value.key);
   };
   const [collapsed, setCollapsed] = useState(true);
-  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState({title : "", visible : false});
   const [drawerContent, setDrawerContent] = useState();
 
   const setEssayDrawerContent = () =>{
@@ -175,9 +175,10 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
        
     </Col>
   </Row>)
- }
+  }
 
  const getDrawersContent = (drawerName) =>{
+   debugger;
     switch(drawerName){
       case 'essay':
         setEssayDrawerContent();
@@ -190,6 +191,15 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
         break;
         default :
     }
+ }
+
+ const onDrawerLinkClick = (title) => {
+   debugger;
+if(drawerVisible.title == title){
+  setDrawerVisible({title : "", visible : false});
+}else{
+  setDrawerVisible({title : title, visible : true}); getDrawersContent(title);
+}
  }
 
 
@@ -219,22 +229,22 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
             <Menu.Item key="1">
               <Link to="/" onClick={() => {setDrawerVisible(false)}}>Home</Link>
             </Menu.Item>
-            <Menu.Item key="2" onClick={() => {setDrawerVisible(false)}}>
+            <Menu.Item key="2" onClick={() => {setDrawerVisible({title : "", visible : false})}}>
               <Link to="/about">About Us</Link>
             </Menu.Item>
-            <Menu.Item key="3" onClick={() => {setDrawerVisible(false)}}>
+            <Menu.Item key="3" onClick={() => {setDrawerVisible({title : "", visible : false})}}>
               <Link to="/ongoing-events">Ongoing Events</Link>
             </Menu.Item>
-            <Menu.Item key="4" onClick={() => {setDrawerVisible(false)}}>
+            <Menu.Item key="4" onClick={() => {setDrawerVisible({title : "", visible : false})}}>
             <Link to="/most-repeated">Most Repeated</Link>
             </Menu.Item>
-            <Menu.Item key="5" onClick={() => {setDrawerVisible(true); getDrawersContent('paper');}}>
+            <Menu.Item key="5" onClick={() => {onDrawerLinkClick('paper')}}>
             <Link to="/past-papers">Past Papers<DownOutlined /></Link>
             </Menu.Item>
-            <Menu.Item key="6" onClick={() => {setDrawerVisible(true); getDrawersContent('essay');}}>
+            <Menu.Item key="6" onClick={() => {onDrawerLinkClick('essay')}}>
               <Link to="/essays">Essays<DownOutlined /></Link>
             </Menu.Item>
-            <Menu.Item key="7" onClick={() => {setDrawerVisible(true); getDrawersContent('category');}}>
+            <Menu.Item key="7" onClick={() => {onDrawerLinkClick('category')}}>
               <Link to="/categories">Categories<DownOutlined /></Link>
             </Menu.Item>
           </Menu>
@@ -255,8 +265,8 @@ function Navbar({ img, className, isHamburger, navSelectedKey, setNavSelectedKey
           placement={"top"}
           destroyOnClose={true}
           closable={false}
-          onClose={() => {setDrawerVisible(false)}}
-          visible={drawerVisible}
+          onClose={() => {setDrawerVisible({title : "", visible : false})}}
+          visible={drawerVisible.visible}
           key={"catgoriesdrawer"}
         >
           {drawerContent}
