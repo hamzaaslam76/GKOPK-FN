@@ -205,13 +205,13 @@ function Navbar({
   const getDrawersContent = (drawerName) => {
     debugger;
     switch (drawerName) {
-      case "essay":
+      case "6173d5af31c271202cfdcd7d":
         setEssayDrawerContent();
         break;
-      case "paper":
+      case "6173d59631c271202cfdcd7c":
         setPapersDrawerContent();
         break;
-      case "category":
+      case "6173d63331c271202cfdcd7e":
         setCategoriesDrawerContent();
         break;
       default:
@@ -219,7 +219,6 @@ function Navbar({
   };
 
   const onDrawerLinkClick = (title) => {
-    debugger;
     if (drawerVisible.title == title) {
       setDrawerVisible({ title: "", visible: false });
     } else {
@@ -271,17 +270,34 @@ function Navbar({
             className={`navbar-menu ${!collapsed ? "showmenu" : ""}`}
             onSelect={handleMenuSelect}
           >
-            <Menu.Item key="1">
-              <Link
-                to="/"
-                onClick={() => {
-                  setDrawerVisible(false);
-                }}
-              >
-                Home
-              </Link>
-            </Menu.Item>
-            <Menu.Item
+            {categories &&
+              categories.length > 0 &&
+              categories.map((cat) => (
+                <>
+                  {cat.subMenu && cat["subMenu"].length === 0 ? (
+                    <Menu.Item
+                      key={cat._id}
+                      onClick={() => {
+                        setDrawerVisible(false);
+                      }}
+                    >
+                      {cat.name}
+                    </Menu.Item>
+                  ) : (
+                    <Menu.Item
+                      key={cat._id}
+                      onClick={() => {
+                        onDrawerLinkClick(cat._id);
+                      }}
+                    >
+                      {cat.name}
+                      <DownOutlined />
+                    </Menu.Item>
+                  )}
+                </>
+              ))}
+
+            {/* <Menu.Item
               key="2"
               onClick={() => {
                 setDrawerVisible({ title: "", visible: false });
@@ -337,19 +353,9 @@ function Navbar({
                 Categories
                 <DownOutlined />
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </div>
-
-        {/* <Drawer
-        className="navigation-drawer"
-          placement={"top"}
-          closable={false}
-          onClose={() => {setEssayDrawerVisible(false)}}
-          visible={essayDrawerVisible}
-          key={"essaydrawer"}
-        >
-        </Drawer> */}
 
         <Drawer
           className="navigation-drawer categories-drawer"
@@ -364,17 +370,6 @@ function Navbar({
         >
           {drawerContent}
         </Drawer>
-
-        {/* <Drawer
-        className="navigation-drawer"
-          placement={"top"}
-          destroyOnClose={true}
-          closable={false}
-          onClose={() => {setPapersDrawerVisible(false)}}
-          visible={papersDrawerVisible}
-          key={"papersdrawer"}
-        >
-          </Drawer> */}
       </div>
     </Header>
   );
