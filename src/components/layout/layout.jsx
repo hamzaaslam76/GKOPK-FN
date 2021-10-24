@@ -5,6 +5,9 @@ import Home from '../home/home';
 import { Affix , Layout as AntLayout} from 'antd';
 import { Route, Switch } from 'react-router';
 import gkopklogo from "../../images/Logo.png";
+import Footer from '../common/footer/footer';
+import About from '../about/about';
+import MostRepeated from '../mostRepeated/mostRepeated';
 function Layout(){
     const {Content} = AntLayout;
     const [navSelectedKey, setNavSelectedKey] = useState("0");
@@ -32,12 +35,12 @@ return(
             </Affix>
             <Content>
                 <Switch>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                    
+                    <Route path="/about" component={About}/>
+                    <Route path="/most-repeated" component={MostRepeated}/>
+                    <Route path="/" component={Home}/>
                 </Switch>
             </Content>
+            <Footer/>
         </AntLayout>
 );
 }
