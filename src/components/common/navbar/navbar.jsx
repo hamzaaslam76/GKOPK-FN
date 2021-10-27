@@ -8,6 +8,7 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 import "./navbar.css";
+import { useHistory } from "react-router";
 import RiversImage from "../../../images/Rivers.png";
 import DistrictsImage from "../../../images/District.png";
 import MountainsImage from "../../../images/mountain.png";
@@ -23,8 +24,27 @@ function Navbar({
   navSelectedKey,
   setNavSelectedKey,
 }) {
+  const history = useHistory();
   const handleMenuSelect = (value) => {
+    console.log("nav value", value);
     setNavSelectedKey(value.key);
+    switch (value.key) {
+      case "6173c6b031c271202cfdcd78":
+        history.push("/");
+        break;
+      case "6173c70031c271202cfdcd79":
+        history.push("/about");
+        break;
+      case "6173d4f931c271202cfdcd7a":
+        history.push("/ongoing-events");
+        break;
+      case "6173d51d31c271202cfdcd7b":
+        history.push("/most-repeated");
+        break;
+
+      default:
+        break;
+    }
   };
   const [collapsed, setCollapsed] = useState(true);
   const [drawerContent, setDrawerContent] = useState();
@@ -44,12 +64,25 @@ function Navbar({
     return () => {};
   }, []);
 
-  const setEssayDrawerContent = () => {
+  const setEssayDrawerContent = (cat) => {
     setDrawerContent(
       <Row>
-        <Col span={12}>
-          <p className="navigation-drawer-heading">ESSAY OUTLINES</p>
-          <ul className="navigation-drawer-list">
+        {cat &&
+          cat.subMenu.length > 0 &&
+          cat.subMenu.map((item) => (
+            <Col span={12}>
+              <p className="navigation-drawer-heading">{item.name}</p>
+              <Menu
+                mode="inline"
+                //theme="dark"
+                // inlineCollapsed={this.state.collapsed}
+              >
+                {item.subMenu.length > 0 &&
+                  item.subMenu.map((sub) => (
+                    <Menu.Item key={sub._id}>{sub.name}</Menu.Item>
+                  ))}
+              </Menu>
+              {/* <ul className="navigation-drawer-list">
             <li className="navigation-drawer-item">
               Features of a Real Democracy
             </li>
@@ -68,9 +101,10 @@ function Navbar({
             <li className="navigation-drawer-item">
               Emerging Power of Social Media
             </li>
-          </ul>
-        </Col>
-        <Col span={12}>
+          </ul> */}
+            </Col>
+          ))}
+        {/* <Col span={12}>
           <p className="navigation-drawer-heading">COMPLETE ESSAYS</p>
           <ul className="navigation-drawer-list">
             <li className="navigation-drawer-item">
@@ -83,21 +117,25 @@ function Navbar({
               Features of a Real Democracy
             </li>
           </ul>
-        </Col>
+        </Col> */}
       </Row>
     );
   };
 
-  const setCategoriesDrawerContent = () => {
+  const setCategoriesDrawerContent = (cat) => {
     setDrawerContent(
       <Row>
         <Col span={24}>
           <Row>
-            <Col className="categories-drawer__col" span={6}>
-              <img src={RiversImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">Rivers of Pakistan</p>
-            </Col>
-            <Col className="categories-drawer__col" span={6}>
+            {cat &&
+              cat.subMenu.length > 0 &&
+              cat.subMenu.map((item) => (
+                <Col className="categories-drawer__col" span={6}>
+                  <img src={RiversImage} className="categories-drawer__image" />
+                  <p className="categories-drawer__text">{item.name}</p>
+                </Col>
+              ))}
+            {/* <Col className="categories-drawer__col" span={6}>
               <img src={DistrictsImage} className="categories-drawer__image" />
               <p className="categories-drawer__text">Districts of Pakistan</p>
             </Col>
@@ -109,9 +147,13 @@ function Navbar({
               <img src={HistoryImage} className="categories-drawer__image" />
               <p className="categories-drawer__text">History</p>
             </Col>
+            <Col className="categories-drawer__col" span={6}>
+              <img src={HistoryImage} className="categories-drawer__image" />
+              <p className="categories-drawer__text">History</p>
+            </Col> */}
           </Row>
         </Col>
-        <Col span={24}>
+        {/* <Col span={24}>
           <Row>
             <Col className="categories-drawer__col" span={6}>
               <img src={EnergyImage} className="categories-drawer__image" />
@@ -125,25 +167,41 @@ function Navbar({
               <p className="categories-drawer__text">Agriculture Sector</p>
             </Col>
           </Row>
-        </Col>
+        </Col> */}
       </Row>
     );
   };
 
-  const setPapersDrawerContent = () => {
+  const setPapersDrawerContent = (cat) => {
     setDrawerContent(
       <Row>
         <Col span={24}>
           <Row>
-            <Col span={6}>
-              <p className="navigation-drawer-heading">ENGLISH PRECIS CSS</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-            <Col span={6}>
+            {cat &&
+              cat.subMenu.length > 0 &&
+              cat.subMenu.map((item) => (
+                <>
+                  <Col span={6}>
+                    <p className="navigation-drawer-heading">{item.name}</p>
+                    <Menu
+                      mode="inline"
+                      //theme="dark"
+                      // inlineCollapsed={this.state.collapsed}
+                    >
+                      {item.subMenu.length > 0 &&
+                        item.subMenu.map((sub) => (
+                          <Menu.Item key={sub._id}>{sub.name}</Menu.Item>
+                        ))}
+                    </Menu>
+                    {/* <ul className="navigation-drawer-list">
+                      <li className="navigation-drawer-item">2019</li>
+                      <li className="navigation-drawer-item">2020</li>
+                      <li className="navigation-drawer-item">2021</li>
+                    </ul> */}
+                  </Col>
+                </>
+              ))}
+            {/* <Col span={6}>
               <p className="navigation-drawer-heading">CURRENT AFFAIRS CSS</p>
               <ul className="navigation-drawer-list">
                 <li className="navigation-drawer-item">2019</li>
@@ -195,35 +253,35 @@ function Navbar({
                 <li className="navigation-drawer-item">2020</li>
                 <li className="navigation-drawer-item">2021</li>
               </ul>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
       </Row>
     );
   };
 
-  const getDrawersContent = (drawerName) => {
+  const getDrawersContent = (cat) => {
     debugger;
-    switch (drawerName) {
+    switch (cat._id) {
       case "6173d5af31c271202cfdcd7d":
-        setEssayDrawerContent();
+        setEssayDrawerContent(cat);
         break;
       case "6173d59631c271202cfdcd7c":
-        setPapersDrawerContent();
+        setPapersDrawerContent(cat);
         break;
       case "6173d63331c271202cfdcd7e":
-        setCategoriesDrawerContent();
+        setCategoriesDrawerContent(cat);
         break;
       default:
     }
   };
 
-  const onDrawerLinkClick = (title) => {
-    if (drawerVisible.title == title) {
+  const onDrawerLinkClick = (cat) => {
+    if (drawerVisible.title == cat._id) {
       setDrawerVisible({ title: "", visible: false });
     } else {
-      setDrawerVisible({ title: title, visible: true });
-      getDrawersContent(title);
+      setDrawerVisible({ title: cat._id, visible: true });
+      getDrawersContent(cat);
     }
   };
 
@@ -287,7 +345,7 @@ function Navbar({
                     <Menu.Item
                       key={cat._id}
                       onClick={() => {
-                        onDrawerLinkClick(cat._id);
+                        onDrawerLinkClick(cat);
                       }}
                     >
                       {cat.name}
