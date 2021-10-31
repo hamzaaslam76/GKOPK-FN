@@ -1,3 +1,4 @@
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import { Col, List, Row } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import React, { useState } from "react";
@@ -43,13 +44,13 @@ function MostRepeated (){
            return(
               <div><span className="list-item-answer">{item.answer}</span><br/>
         <span className="list-item-link-button" onClick={() => {hideAnswer(item)}}>
-              Hide answer
+        <EyeInvisibleOutlined /> Hide answer
               </span>
               </div>
            )
          }else{
             return(<span onClick={() => {showAnswer(item)}} className="list-item-link-button">
-               Show answer
+              <EyeOutlined /> Show answer
                </span>
                )
          }

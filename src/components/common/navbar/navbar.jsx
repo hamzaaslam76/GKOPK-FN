@@ -73,13 +73,14 @@ function Navbar({
             <Col span={12}>
               <p className="navigation-drawer-heading">{item.name}</p>
               <Menu
+              className="navigation-drawer-list"
                 mode="inline"
                 //theme="dark"
                 // inlineCollapsed={this.state.collapsed}
               >
                 {item.subMenu.length > 0 &&
                   item.subMenu.map((sub) => (
-                    <Menu.Item key={sub._id}>{sub.name}</Menu.Item>
+                    <Menu.Item className="navigation-drawer-item" key={sub._id}>{sub.name}</Menu.Item>
                   ))}
               </Menu>
               {/* <ul className="navigation-drawer-list">
@@ -334,6 +335,7 @@ function Navbar({
                 <>
                   {cat.subMenu && cat["subMenu"].length === 0 ? (
                     <Menu.Item
+                    className="navbar-item"
                       key={cat._id}
                       onClick={() => {
                         setDrawerVisible(false);
@@ -343,6 +345,7 @@ function Navbar({
                     </Menu.Item>
                   ) : (
                     <Menu.Item
+                    className="navbar-item"
                       key={cat._id}
                       onClick={() => {
                         onDrawerLinkClick(cat);
