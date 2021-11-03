@@ -17,6 +17,7 @@ import HistoryImage from "../../../images/Group 6.png";
 import EnergyImage from "../../../images/ecosystem.png";
 import config from "../../../config";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 function Navbar({
   img,
   className,
@@ -25,8 +26,16 @@ function Navbar({
   setNavSelectedKey,
 }) {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const [categories, setCategories] = useState([]);
+  const [collapsed, setCollapsed] = useState(true);
+  const [drawerContent, setDrawerContent] = useState();
+  const [drawerVisible, setDrawerVisible] = useState({
+    title: "",
+    visible: false,
+  });
+
   const handleMenuSelect = (value) => {
-    console.log("nav value", value);
     setNavSelectedKey(value.key);
     switch (value.key) {
       case "6173c6b031c271202cfdcd78":
@@ -36,9 +45,17 @@ function Navbar({
         history.push("/about");
         break;
       case "6173d4f931c271202cfdcd7a":
-        history.push("/ongoing-events");
+        dispatch({
+          type: "SET_STATE",
+          payload: { id: value.key, title: "Ongoing Events" },
+        });
+        history.push("/ongoing-event");
         break;
       case "6173d51d31c271202cfdcd7b":
+        dispatch({
+          type: "SET_STATE",
+          payload: { id: value.key, title: "Most Repeated" },
+        });
         history.push("/most-repeated");
         break;
 
@@ -46,13 +63,6 @@ function Navbar({
         break;
     }
   };
-  const [collapsed, setCollapsed] = useState(true);
-  const [drawerContent, setDrawerContent] = useState();
-  const [drawerVisible, setDrawerVisible] = useState({
-    title: "",
-    visible: false,
-  });
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios
@@ -73,14 +83,16 @@ function Navbar({
             <Col span={12}>
               <p className="navigation-drawer-heading">{item.name}</p>
               <Menu
-              className="navigation-drawer-list"
+                className="navigation-drawer-list"
                 mode="inline"
                 //theme="dark"
                 // inlineCollapsed={this.state.collapsed}
               >
                 {item.subMenu.length > 0 &&
                   item.subMenu.map((sub) => (
-                    <Menu.Item className="navigation-drawer-item" key={sub._id}>{sub.name}</Menu.Item>
+                    <Menu.Item className="navigation-drawer-item" key={sub._id}>
+                      {sub.name}
+                    </Menu.Item>
                   ))}
               </Menu>
               {/* <ul className="navigation-drawer-list">
@@ -262,7 +274,6 @@ function Navbar({
   };
 
   const getDrawersContent = (cat) => {
-    debugger;
     switch (cat._id) {
       case "6173d5af31c271202cfdcd7d":
         setEssayDrawerContent(cat);
@@ -335,7 +346,7 @@ function Navbar({
                 <>
                   {cat.subMenu && cat["subMenu"].length === 0 ? (
                     <Menu.Item
-                    className="navbar-item"
+                      className="navbar-item"
                       key={cat._id}
                       onClick={() => {
                         setDrawerVisible(false);
@@ -345,7 +356,7 @@ function Navbar({
                     </Menu.Item>
                   ) : (
                     <Menu.Item
-                    className="navbar-item"
+                      className="navbar-item"
                       key={cat._id}
                       onClick={() => {
                         onDrawerLinkClick(cat);
