@@ -120,22 +120,22 @@ function Home() {
               />
             </div>
             <Row gutter={15} className="home-page__hero-section-card-container">
-              <Col xs={6}>
+              <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={mostRepeatedImage}
                   title={"Most Repeated Q/A"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col xs={12} sm={6}>
                 <PrimaryCard image={pastPapersImage} title={"Past Papers"} />
               </Col>
-              <Col xs={6}>
+              <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={essayOutlineImage}
                   title={"Essay Outlines"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={completeEssayImage}
                   title={"Complete Essays"}
@@ -177,65 +177,60 @@ function Home() {
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             </p>
             <Row
-              gutter={15}
+              gutter={[16,16]}
+              justify={"center"}
               className="learn-about-pakistan-section-card-container"
             >
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={riversImage}
                   title={"Rivers"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={districtImage}
                   title={"Districts"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={mountainImage}
                   title={"Mountains/Ranges"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={historyImage}
                   title={"History"}
                   description={"25"}
                 />
               </Col>
-            </Row>
-
-            <Row
-              gutter={15}
-              className="learn-about-pakistan-section-card-container"
-            >
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={riversImage}
                   title={"Rivers"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={districtImage}
                   title={"Districts"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={mountainImage}
                   title={"Mountains/Ranges"}
                   description={"25"}
                 />
               </Col>
-              <Col xs={6}>
+              <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={historyImage}
                   title={"History"}

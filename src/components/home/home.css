@@ -73,18 +73,18 @@
 }
 
 #home-page__hero-section {
-  padding: 3.75rem 0 11.875rem 0;
+  padding: 5rem 0;
 }
 
 .home-page__hero-section-card-container {
-  position: absolute;
-  bottom: -320px;
-  width: 100%;
+  /* position: absolute;
+  bottom: -20rem;
+  width: 100%; */
+  margin-top:5rem ;
 }
 
 #home-page__ongoing-events-section {
-  margin-top: 12.813rem;
-  padding-bottom: 50px;
+  padding-bottom: 3.125rem;
 }
 
 .home-page__ongoing-events-section-container {
@@ -134,7 +134,7 @@
 }
 
 .ant-list-item-meta-avatar {
-  padding: 10px;
+  padding: 0.625rem;
   margin: 0px 1rem;
   border-radius: 10px;
   background-color: rgba(113, 201, 206, 0.08);
@@ -170,13 +170,14 @@
 }
 
 #any-questions-section {
-  padding: 60px 0px;
+  padding: 3.75rem 0px;
 }
 
 .any-questions-section-container {
-  padding: 60px;
+  padding: 3.75rem;
   border-radius: 10px;
   background-color: #27bbad;
+  width: 90%;
 }
 
 .any-questions-section-heading {
@@ -196,4 +197,24 @@
   letter-spacing: 0;
   line-height: 2.125rem;
   text-align: center;
+}
+
+@media screen and (max-width : 567px){
+.home-page__hero-section-card-container .primary-card{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#home-page__ongoing-events-section{
+  margin-top: 0px;
+}
+
+#home-page__hero-section{
+  padding : 4rem 0px;
+}
+}
+
+@media screen and (max-width : 400px){
+ 
 }

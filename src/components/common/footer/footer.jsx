@@ -8,10 +8,10 @@ return(
     <div id="gkopk-footer">
 <div className="container">
 <Row align={"middle"} justify={"space-between"}>
-        <Col xs={8} className="copyright-col">
+        <Col xs={13} className="copyright-col">
         Copyright @GKOPK 2021 All Rights Reserved
         </Col>
-        <Col xs={8} className="footer-nav-col">
+        <Col xs={10} sm={8} className="footer-nav-col">
                 <Link>About</Link>
                 <Link>Privacy</Link>
                 <Link>Terms</Link>

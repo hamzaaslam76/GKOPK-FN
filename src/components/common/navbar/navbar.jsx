@@ -10,14 +10,9 @@ import {
 import "./navbar.css";
 import { useHistory } from "react-router";
 import RiversImage from "../../../images/Rivers.png";
-import DistrictsImage from "../../../images/District.png";
-import MountainsImage from "../../../images/mountain.png";
-import AgricultureImage from "../../../images/agriculture.png";
-import HistoryImage from "../../../images/Group 6.png";
-import EnergyImage from "../../../images/ecosystem.png";
 import config from "../../../config";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 function Navbar({
   img,
   className,

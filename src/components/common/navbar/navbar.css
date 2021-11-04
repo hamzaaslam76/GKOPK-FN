@@ -23,12 +23,12 @@
   top: 50%;
   margin-top: -13px;
   background: #eeee !important;
-  border-color: #174cb8 !important;
+  border-color: #27bbad !important;
   z-index: 100;
 }
 
 .hamburger-menu-button span {
-  color: #174cb8 !important;
+  color: #27bbad !important;
 }
 
 .hamburger-menu .ant-menu-vertical {
@@ -50,7 +50,7 @@
 }
 
 .black-navbar .ant-menu-vertical {
-  border: 1px solid #174cb8 !important;
+  border: 1px solid #27bbad !important;
 }
 .hamburger-menu .showmenu {
   margin-top: 0;
@@ -200,7 +200,7 @@
 .ant-drawer-open{
   height : 92% !important;
   top : 90px !important;
-  left: -27px !important;
+  /* left: -27px !important; */
 }
 
 .navigation-drawer{

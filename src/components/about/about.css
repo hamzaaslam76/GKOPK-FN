@@ -1,5 +1,5 @@
 .about-header{
-padding: 75px 0 110px 0;
+padding: 4.688rem 0 6.875rem 0;
 background-color: #F7FAFB;
 }
 
@@ -14,7 +14,7 @@ background-color: #F7FAFB;
 }
 
 .about-content{
-    padding: 110px 0px;
+    padding: 6.875rem 0px;
 }
 
 .about-content__col-text{

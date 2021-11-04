@@ -14,11 +14,11 @@ function Layout() {
   const [isHamburger, setIsHamburger] = useState(false);
 
   useEffect(() => {
-    setIsHamburger(window.innerWidth <= 770 ? true : false);
+    setIsHamburger(window.innerWidth <= 970 ? true : false);
   }, []);
 
   window.addEventListener("resize", () => {
-    setIsHamburger(window.innerWidth <= 770 ? true : false);
+    setIsHamburger(window.innerWidth <= 970 ? true : false);
     console.log("ishamburger", isHamburger);
   });
 
