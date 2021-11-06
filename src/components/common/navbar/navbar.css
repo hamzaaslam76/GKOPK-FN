@@ -256,6 +256,7 @@ margin: 0 auto;
   margin-bottom: 0px;
   padding: 0px ;
   padding-left: 0px !important;
+  height: 60px;
 }
 
 .navigation-drawer-list .navigation-drawer-item.ant-menu-item-active{

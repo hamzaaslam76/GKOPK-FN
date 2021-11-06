@@ -124,6 +124,8 @@ function Home() {
                 <PrimaryCard
                   image={mostRepeatedImage}
                   title={"Most Repeated Q/A"}
+                  path={"/most-repeated"}
+                  id={"6173d51d31c271202cfdcd7b"}
                 />
               </Col>
               <Col xs={12} sm={6}>
@@ -177,7 +179,7 @@ function Home() {
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             </p>
             <Row
-              gutter={[16,16]}
+              gutter={[16, 16]}
               justify={"center"}
               className="learn-about-pakistan-section-card-container"
             >

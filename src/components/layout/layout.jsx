@@ -38,6 +38,7 @@ function Layout() {
           <Route path="/about" component={About} />
           <Route path="/most-repeated" component={MostRepeated} />
           <Route path="/ongoing-event" component={MostRepeated} />
+          <Route path="/categories" component={MostRepeated} />
           <Route path="/" component={Home} />
         </Switch>
       </Content>

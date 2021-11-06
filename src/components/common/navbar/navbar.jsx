@@ -10,9 +10,15 @@ import {
 import "./navbar.css";
 import { useHistory } from "react-router";
 import RiversImage from "../../../images/Rivers.png";
+import DistrictsImage from "../../../images/District.png";
+import MountainsImage from "../../../images/mountain.png";
+import HistoryImage from "../../../images/Group 6.png";
+import EnergyImage from "../../../images/ecosystem.png";
+import AgricultureImage from "../../../images/agriculture.png";
+
 import config from "../../../config";
 import axios from "axios";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 function Navbar({
   img,
   className,
@@ -29,7 +35,14 @@ function Navbar({
     title: "",
     visible: false,
   });
-
+  const [imgs, setImgs] = useState([
+    RiversImage,
+    DistrictsImage,
+    MountainsImage,
+    HistoryImage,
+    EnergyImage,
+    AgricultureImage,
+  ]);
   const handleMenuSelect = (value) => {
     setNavSelectedKey(value.key);
     switch (value.key) {
@@ -129,7 +142,15 @@ function Navbar({
       </Row>
     );
   };
-
+  const handelItem = (value, name) => {
+    console.log(value, name);
+    setDrawerVisible(false);
+    dispatch({
+      type: "SET_STATE",
+      payload: { id: value.key, title: name },
+    });
+    history.push("/categories");
+  };
   const setCategoriesDrawerContent = (cat) => {
     setDrawerContent(
       <Row>
@@ -137,45 +158,29 @@ function Navbar({
           <Row>
             {cat &&
               cat.subMenu.length > 0 &&
-              cat.subMenu.map((item) => (
+              cat.subMenu.map((item, index) => (
                 <Col className="categories-drawer__col" span={6}>
-                  <img src={RiversImage} className="categories-drawer__image" />
-                  <p className="categories-drawer__text">{item.name}</p>
+                  <Menu
+                    className="navigation-drawer-list"
+                    mode="inline"
+                    onClick={(e) => handelItem(e, item.name)}
+                  >
+                    <Menu.Item
+                      className="navigation-drawer-item"
+                      key={item._id}
+                      title={item.name}
+                    >
+                      <img
+                        src={imgs[index]}
+                        className="categories-drawer__image"
+                      />
+                      <p className="categories-drawer__text">{item.name}</p>
+                    </Menu.Item>
+                  </Menu>
                 </Col>
               ))}
-            {/* <Col className="categories-drawer__col" span={6}>
-              <img src={DistrictsImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">Districts of Pakistan</p>
-            </Col>
-            <Col className="categories-drawer__col" span={6}>
-              <img src={MountainsImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">Mountains of Pakistan</p>
-            </Col>
-            <Col className="categories-drawer__col" span={6}>
-              <img src={HistoryImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">History</p>
-            </Col>
-            <Col className="categories-drawer__col" span={6}>
-              <img src={HistoryImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">History</p>
-            </Col> */}
           </Row>
         </Col>
-        {/* <Col span={24}>
-          <Row>
-            <Col className="categories-drawer__col" span={6}>
-              <img src={EnergyImage} className="categories-drawer__image" />
-              <p className="categories-drawer__text">Energy Sector</p>
-            </Col>
-            <Col className="categories-drawer__col" span={6}>
-              <img
-                src={AgricultureImage}
-                className="categories-drawer__image"
-              />
-              <p className="categories-drawer__text">Agriculture Sector</p>
-            </Col>
-          </Row>
-        </Col> */}
       </Row>
     );
   };
@@ -193,12 +198,17 @@ function Navbar({
                     <p className="navigation-drawer-heading">{item.name}</p>
                     <Menu
                       mode="inline"
-                      //theme="dark"
-                      // inlineCollapsed={this.state.collapsed}
+                      className="navigation-drawer-list"
+                      onClick={(e) => handelItem(e, item.name)}
                     >
                       {item.subMenu.length > 0 &&
                         item.subMenu.map((sub) => (
-                          <Menu.Item key={sub._id}>{sub.name}</Menu.Item>
+                          <Menu.Item
+                            className="navigation-drawer-item"
+                            key={sub._id}
+                          >
+                            {sub.name}
+                          </Menu.Item>
                         ))}
                     </Menu>
                     {/* <ul className="navigation-drawer-list">
