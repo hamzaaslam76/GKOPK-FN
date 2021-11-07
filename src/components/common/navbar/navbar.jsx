@@ -31,6 +31,7 @@ function Navbar({
   });
 
   const handleMenuSelect = (value) => {
+    setCollapsed(true);
     setNavSelectedKey(value.key);
     switch (value.key) {
       case "6173c6b031c271202cfdcd78":
@@ -75,7 +76,7 @@ function Navbar({
         {cat &&
           cat.subMenu.length > 0 &&
           cat.subMenu.map((item) => (
-            <Col span={12}>
+            <Col xs={24} sm={12}>
               <p className="navigation-drawer-heading">{item.name}</p>
               <Menu
                 className="navigation-drawer-list"
@@ -138,7 +139,7 @@ function Navbar({
             {cat &&
               cat.subMenu.length > 0 &&
               cat.subMenu.map((item) => (
-                <Col className="categories-drawer__col" span={6}>
+                <Col className="categories-drawer__col" xs={12} sm={6}>
                   <img src={RiversImage} className="categories-drawer__image" />
                   <p className="categories-drawer__text">{item.name}</p>
                 </Col>

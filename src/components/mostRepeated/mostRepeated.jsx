@@ -7,6 +7,7 @@ import "./mostRepeated.css";
 import { useSelector } from "react-redux";
 import config from "../../config";
 import axios from "axios";
+import CustomPagination from "../common/pagination/pagination";
 function MostRepeated() {
   const { parentId, title } = useSelector((state) => state.common);
   const [answerKey, setAnswerKey] = useState([]);
@@ -110,6 +111,7 @@ function MostRepeated() {
           />
         </div>
         {/* </section> */}
+        <CustomPagination className="align-right" currentPage={1} totalRecords={100}/>
       </div>
     </div>
   );
