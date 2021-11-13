@@ -15,14 +15,15 @@ function PrimaryCard(props) {
       cover={<img src={props.image} />}
       actions={[
         <Space
-          onClick={() => {
-            dispatch({
+          onClick={async () => {
+            await dispatch({
               type: "SET_STATE",
               payload: {
                 id: props.id,
                 title: props.title,
               },
             });
+            await dispatch({ type: "SET_KEY", payload: { key: props.nevKey } });
             history.replace(props.path);
           }}
         >

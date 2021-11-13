@@ -1,5 +1,5 @@
 .about-header{
-padding: 4.688rem 0 6.875rem 0;
+padding: 2rem 0 0 0;
 background-color: #F7FAFB;
 }
 
@@ -28,4 +28,8 @@ background-color: #F7FAFB;
 
 .primary-color{
     color: #27BBAD;
+}
+.aboutImg{
+    width: 500px;
+    height: 600px;
 }

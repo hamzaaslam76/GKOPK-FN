@@ -18,18 +18,13 @@ import AgricultureImage from "../../../images/agriculture.png";
 
 import config from "../../../config";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-function Navbar({
-  img,
-  className,
-  isHamburger,
-  navSelectedKey,
-  setNavSelectedKey,
-}) {
+import { useDispatch, useSelector } from "react-redux";
+function Navbar({ img, className, isHamburger }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
   const [collapsed, setCollapsed] = useState(true);
+  const { navSelectedKey } = useSelector((state) => state.navBarReducer);
   const [drawerContent, setDrawerContent] = useState();
   const [drawerVisible, setDrawerVisible] = useState({
     title: "",
@@ -44,7 +39,9 @@ function Navbar({
     AgricultureImage,
   ]);
   const handleMenuSelect = (value) => {
-    setNavSelectedKey(value.key);
+    setCollapsed(true);
+
+    dispatch({ type: "SET_KEY", payload: { key: value.key } });
     switch (value.key) {
       case "6173c6b031c271202cfdcd78":
         history.push("/");
@@ -88,7 +85,7 @@ function Navbar({
         {cat &&
           cat.subMenu.length > 0 &&
           cat.subMenu.map((item) => (
-            <Col span={12}>
+            <Col xs={24} sm={12}>
               <p className="navigation-drawer-heading">{item.name}</p>
               <Menu
                 className="navigation-drawer-list"

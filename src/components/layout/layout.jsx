@@ -29,8 +29,6 @@ function Layout() {
           img={gkopklogo}
           className={"black-navbar"}
           isHamburger={isHamburger}
-          navSelectedKey={navSelectedKey}
-          setNavSelectedKey={setNavSelectedKey}
         />
       </Affix>
       <Content>

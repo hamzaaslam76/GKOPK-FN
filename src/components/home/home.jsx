@@ -119,13 +119,17 @@ function Home() {
                 }
               />
             </div>
-            <Row gutter={15} className="home-page__hero-section-card-container">
+            <Row
+              gutter={[16, 16]}
+              className="home-page__hero-section-card-container"
+            >
               <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={mostRepeatedImage}
                   title={"Most Repeated Q/A"}
                   path={"/most-repeated"}
                   id={"6173d51d31c271202cfdcd7b"}
+                  nevKey={"6173d51d31c271202cfdcd7b"}
                 />
               </Col>
               <Col xs={12} sm={6}>
