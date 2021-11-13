@@ -24,7 +24,9 @@ function Navbar({ img, className, isHamburger }) {
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
   const [collapsed, setCollapsed] = useState(true);
-  const { navSelectedKey } = useSelector((state) => state.navBarReducer);
+  const { navSelectedKey, drawersOpen } = useSelector(
+    (state) => state.navBarReducer
+  );
   const [drawerContent, setDrawerContent] = useState();
   const [drawerVisible, setDrawerVisible] = useState({
     title: "",
@@ -78,7 +80,12 @@ function Navbar({ img, className, isHamburger }) {
       .catch((err) => setCategories([]));
     return () => {};
   }, []);
-
+  useEffect(() => {
+    if (drawersOpen) {
+      const data = categories.filter((item) => item._id === navSelectedKey);
+      onDrawerLinkClick(data[0]);
+    }
+  }, [drawersOpen]);
   const setEssayDrawerContent = (cat) => {
     setDrawerContent(
       <Row>
@@ -92,6 +99,7 @@ function Navbar({ img, className, isHamburger }) {
                 mode="inline"
                 //theme="dark"
                 // inlineCollapsed={this.state.collapsed}
+                onClick={(e) => handleEssay(e, item.name)}
               >
                 {item.subMenu.length > 0 &&
                   item.subMenu.map((sub) => (
@@ -139,8 +147,15 @@ function Navbar({ img, className, isHamburger }) {
       </Row>
     );
   };
+  const handleEssay = (value, name) => {
+    setDrawerVisible(false);
+    dispatch({
+      type: "SET_STATE",
+      payload: { id: value.key, title: name },
+    });
+    history.push("/essay");
+  };
   const handelItem = (value, name) => {
-    console.log(value, name);
     setDrawerVisible(false);
     dispatch({
       type: "SET_STATE",
@@ -293,6 +308,7 @@ function Navbar({ img, className, isHamburger }) {
   const onDrawerLinkClick = (cat) => {
     if (drawerVisible.title == cat._id) {
       setDrawerVisible({ title: "", visible: false });
+      dispatch({ type: "SET_KEY", payload: { key: cat._id } });
     } else {
       setDrawerVisible({ title: cat._id, visible: true });
       getDrawersContent(cat);

@@ -1,5 +1,6 @@
 const intialstate = {
   navSelectedKey: "6173c6b031c271202cfdcd78",
+  drawersOpen: false,
 };
 const navBarReducer = (state = intialstate, action) => {
   switch (action.type) {
@@ -7,6 +8,7 @@ const navBarReducer = (state = intialstate, action) => {
       return {
         ...state,
         navSelectedKey: action.payload.key,
+        drawersOpen: action.payload.open ? action.payload.open : false,
       };
     }
 

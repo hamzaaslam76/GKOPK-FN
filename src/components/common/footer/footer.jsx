@@ -1,25 +1,25 @@
-import { Col, Row, Space } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Col, Row, Space } from "antd";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./footer.css";
 
-function Footer(){
-return(
+function Footer() {
+  return (
     <div id="gkopk-footer">
-<div className="container">
-<Row align={"middle"} justify={"space-between"}>
-        <Col xs={13} className="copyright-col">
-        Copyright @GKOPK 2021 All Rights Reserved
-        </Col>
-        <Col xs={10} sm={8} className="footer-nav-col">
-                <Link>About</Link>
-                <Link>Privacy</Link>
-                <Link>Terms</Link>
-                <Link>Contacts</Link>
-        </Col>
+      <div className="container">
+        <Row align={"middle"} justify={"space-between"}>
+          <Col xs={13} className="copyright-col">
+            Copyright @GKOPK 2021 All Rights Reserved
+          </Col>
+          <Col xs={10} sm={8} className="footer-nav-col">
+            <Link to="/about">About</Link>
+            <Link>Privacy</Link>
+            <Link>Terms</Link>
+            <Link>Contacts</Link>
+          </Col>
         </Row>
-</div>
+      </div>
     </div>
-);
+  );
 }
 export default Footer;

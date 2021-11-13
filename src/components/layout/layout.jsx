@@ -8,6 +8,7 @@ import gkopklogo from "../../images/Logo.png";
 import Footer from "../common/footer/footer";
 import About from "../about/about";
 import MostRepeated from "../mostRepeated/mostRepeated";
+import Essay from "../essay/Essay";
 function Layout() {
   const { Content } = AntLayout;
   const [navSelectedKey, setNavSelectedKey] = useState("0");
@@ -37,6 +38,7 @@ function Layout() {
           <Route path="/most-repeated" component={MostRepeated} />
           <Route path="/ongoing-event" component={MostRepeated} />
           <Route path="/categories" component={MostRepeated} />
+          <Route path="/essay" component={Essay} />
           <Route path="/" component={Home} />
         </Switch>
       </Content>

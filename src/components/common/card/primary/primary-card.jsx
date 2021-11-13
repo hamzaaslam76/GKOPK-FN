@@ -23,8 +23,12 @@ function PrimaryCard(props) {
                 title: props.title,
               },
             });
-            await dispatch({ type: "SET_KEY", payload: { key: props.nevKey } });
-            history.replace(props.path);
+            await dispatch({
+              type: "SET_KEY",
+              payload: { key: props.id, open: !props.path ? true : false },
+            });
+
+            props.path && history.replace(props.path);
           }}
         >
           View

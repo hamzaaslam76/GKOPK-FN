@@ -12,17 +12,20 @@ function MostRepeated() {
   const { parentId, title } = useSelector((state) => state.common);
   const [answerKey, setAnswerKey] = useState([]);
   const [question, setQuestion] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalRecord, setTotalRecord] = useState(0);
   useEffect(() => {
     axios
-      .get(`${config.url}questions/category?id=${parentId}&page=${1}`)
+      .get(`${config.url}questions/category?id=${parentId}&page=${page}`)
       .then((res) => {
-        setQuestion(res.data);
+        setQuestion(res.data.questions);
+        setTotalRecord(res.data.totalRecord);
       })
       .catch((err) => {
         console.log(err);
       });
     return () => {};
-  }, [parentId]);
+  }, [parentId, page]);
   const data = [
     {
       question: "Question 1",
@@ -83,7 +86,10 @@ function MostRepeated() {
       );
     }
   };
-
+  const handlePagination = (page, pageSize) => {
+    setPage(page);
+    console.log("page", page, "pageSize", pageSize);
+  };
   return (
     <div id="about">
       <div className="about-header">
@@ -111,7 +117,12 @@ function MostRepeated() {
           />
         </div>
         {/* </section> */}
-        <CustomPagination className="align-right" currentPage={1} totalRecords={100}/>
+        <CustomPagination
+          className="align-right"
+          handlePagination={handlePagination}
+          currentPage={page}
+          totalRecords={totalRecord}
+        />
       </div>
     </div>
   );

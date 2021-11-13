@@ -1,5 +1,5 @@
 import { Button, Card, Col, Input, Row, List, Avatar } from "antd";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./home.css";
 import { SearchOutlined } from "@ant-design/icons";
 import PrimaryCard from "../common/card/primary/primary-card";
@@ -12,21 +12,50 @@ import riversImage from "../../images/Rivers.png";
 import districtImage from "../../images/District.png";
 import mountainImage from "../../images/mountain.png";
 import historyImage from "../../images/Group 6.png";
+import EnergyImage from "../../images/ecosystem.png";
+import AgricultureImage from "../../images/agriculture.png";
 import SecondaryCard from "../common/card/secondary/secondary-card";
 import axios from "axios";
 import config from "../../config";
-
+import CustomPagination from "../common/pagination/pagination";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 function Home() {
   const { Search } = Input;
   const [answerKey, setAnswerKey] = useState([]);
   const [question, setQuestion] = useState([]);
-  useEffect(() => {
+  const [page, setPage] = useState(1);
+  const [totalRecord, setTotalRecord] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const [imgs, setImgs] = useState([
+    riversImage,
+    districtImage,
+    mountainImage,
+    historyImage,
+    EnergyImage,
+    AgricultureImage,
+  ]);
+  useLayoutEffect(() => {
+    axios
+      .get(`${config.url}category/menu`)
+      .then((response) => {
+        setCategories(
+          response.data.filter(
+            (item) => item._id === "6173d63331c271202cfdcd7e"
+          )
+        );
+      })
+      .catch((err) => setCategories([]));
     axios
       .get(
         `${config.url}questions/category?id=6173d4f931c271202cfdcd7a&page=${1}`
       )
       .then((res) => {
-        setQuestion(res.data);
+        setQuestion(res.data.questions);
+        setTotalRecord(res.data.totalRecord);
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +123,23 @@ function Home() {
       );
     }
   };
-
+  const handlePagination = (page) => {
+    setPage(page);
+  };
+  const handleCardData = async (cat) => {
+    await dispatch({
+      type: "SET_STATE",
+      payload: {
+        id: cat._id,
+        title: cat.name,
+      },
+    });
+    await dispatch({
+      type: "SET_KEY",
+      payload: { key: "6173d63331c271202cfdcd7e" },
+    });
+    history.push("/categories");
+  };
   return (
     <>
       <div id="home-page">
@@ -129,22 +174,27 @@ function Home() {
                   title={"Most Repeated Q/A"}
                   path={"/most-repeated"}
                   id={"6173d51d31c271202cfdcd7b"}
-                  nevKey={"6173d51d31c271202cfdcd7b"}
                 />
               </Col>
               <Col xs={12} sm={6}>
-                <PrimaryCard image={pastPapersImage} title={"Past Papers"} />
+                <PrimaryCard
+                  image={pastPapersImage}
+                  title={"Past Papers"}
+                  id={"6173d59631c271202cfdcd7c"}
+                />
               </Col>
               <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={essayOutlineImage}
                   title={"Essay Outlines"}
+                  id={"6173d5af31c271202cfdcd7d"}
                 />
               </Col>
               <Col xs={12} sm={6}>
                 <PrimaryCard
                   image={completeEssayImage}
                   title={"Complete Essays"}
+                  id={"6173d5af31c271202cfdcd7d"}
                 />
               </Col>
             </Row>
@@ -168,7 +218,15 @@ function Home() {
                   />
                 </List.Item>
               )}
-            />
+            >
+              {" "}
+              <CustomPagination
+                className="align-right"
+                handlePagination={handlePagination}
+                currentPage={page}
+                totalRecords={totalRecord}
+              />
+            </List>
           </div>
         </section>
         <section id="learn-about-pakistan-section">
@@ -187,6 +245,42 @@ function Home() {
               justify={"center"}
               className="learn-about-pakistan-section-card-container"
             >
+              {categories[0] &&
+                categories[0].subMenu.map((cat, index) => (
+                  <Col
+                    className="gutter-row"
+                    xs={11}
+                    sm={6}
+                    onClick={() => handleCardData(cat)}
+                  >
+                    <SecondaryCard
+                      image={imgs[index]}
+                      title={cat.name}
+                      // description={"25"}
+                    />
+                  </Col>
+                ))}
+              {/* <Col className="gutter-row" xs={11} sm={6}>
+                <SecondaryCard
+                  image={districtImage}
+                  title={"Districts"}
+                  description={"25"}
+                />
+              </Col>
+              <Col className="gutter-row" xs={11} sm={6}>
+                <SecondaryCard
+                  image={mountainImage}
+                  title={"Mountains/Ranges"}
+                  description={"25"}
+                />
+              </Col>
+              <Col className="gutter-row" xs={11} sm={6}>
+                <SecondaryCard
+                  image={historyImage}
+                  title={"History"}
+                  description={"25"}
+                />
+              </Col>
               <Col className="gutter-row" xs={11} sm={6}>
                 <SecondaryCard
                   image={riversImage}
@@ -214,35 +308,7 @@ function Home() {
                   title={"History"}
                   description={"25"}
                 />
-              </Col>
-              <Col className="gutter-row" xs={11} sm={6}>
-                <SecondaryCard
-                  image={riversImage}
-                  title={"Rivers"}
-                  description={"25"}
-                />
-              </Col>
-              <Col className="gutter-row" xs={11} sm={6}>
-                <SecondaryCard
-                  image={districtImage}
-                  title={"Districts"}
-                  description={"25"}
-                />
-              </Col>
-              <Col className="gutter-row" xs={11} sm={6}>
-                <SecondaryCard
-                  image={mountainImage}
-                  title={"Mountains/Ranges"}
-                  description={"25"}
-                />
-              </Col>
-              <Col className="gutter-row" xs={11} sm={6}>
-                <SecondaryCard
-                  image={historyImage}
-                  title={"History"}
-                  description={"25"}
-                />
-              </Col>
+              </Col> */}
             </Row>
           </div>
         </section>
