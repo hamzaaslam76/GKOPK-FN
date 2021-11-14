@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import config from "../../config";
 import axios from "axios";
 function Essay() {
-  const [question, setQuestion] = useState([]);
+  const [question, setQuestion] = useState();
   const { parentId, title } = useSelector((state) => state.common);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function Essay() {
       .get(`${config.url}questions/category?id=${parentId}&page=1`)
       .then((res) => {
         debugger;
-        setQuestion(res.data.questions);
+        setQuestion(res.data.questions[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -31,10 +31,9 @@ function Essay() {
       <div className="about-content">
         <div className="container">
           <Row className="about-content__col-text" justify={"space-between"}>
-            <Col sm={24} md={{ span: 11, offset: 0 }}></Col>
-            {/* <Col className="about-content__col-image" sm={24} md={10}>
-              <img className="aboutImg" src={aboutImg}></img>
-            </Col> */}
+            <div
+              dangerouslySetInnerHTML={{ __html: question && question.essay }}
+            />
           </Row>
         </div>
       </div>

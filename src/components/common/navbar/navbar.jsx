@@ -6,6 +6,7 @@ import {
   MenuUnfoldOutlined,
   CloseOutlined,
   DownOutlined,
+  UpOutlined,
 } from "@ant-design/icons";
 import "./navbar.css";
 import { useHistory } from "react-router";
@@ -97,8 +98,6 @@ function Navbar({ img, className, isHamburger }) {
               <Menu
                 className="navigation-drawer-list"
                 mode="inline"
-                //theme="dark"
-                // inlineCollapsed={this.state.collapsed}
                 onClick={(e) => handleEssay(e, item.name)}
               >
                 {item.subMenu.length > 0 &&
@@ -108,42 +107,8 @@ function Navbar({ img, className, isHamburger }) {
                     </Menu.Item>
                   ))}
               </Menu>
-              {/* <ul className="navigation-drawer-list">
-            <li className="navigation-drawer-item">
-              Features of a Real Democracy
-            </li>
-            <li className="navigation-drawer-item">
-              Emerging Power of Social Media
-            </li>
-            <li className="navigation-drawer-item">
-              Is an Egalitarian Society Possible by Educating Masses?
-            </li>
-            <li className="navigation-drawer-item">Real Democracy</li>
-            <li className="navigation-drawer-item">Social Media</li>
-            <li className="navigation-drawer-item">Egalitarian Society</li>
-            <li className="navigation-drawer-item">
-              Features of a Real Democracy
-            </li>
-            <li className="navigation-drawer-item">
-              Emerging Power of Social Media
-            </li>
-          </ul> */}
             </Col>
           ))}
-        {/* <Col span={12}>
-          <p className="navigation-drawer-heading">COMPLETE ESSAYS</p>
-          <ul className="navigation-drawer-list">
-            <li className="navigation-drawer-item">
-              Emerging Power of Social Media
-            </li>
-            <li className="navigation-drawer-item">
-              Is an Egalitarian Society Possible by Educating Masses?
-            </li>
-            <li className="navigation-drawer-item">
-              Features of a Real Democracy
-            </li>
-          </ul>
-        </Col> */}
       </Row>
     );
   };
@@ -223,67 +188,9 @@ function Navbar({ img, className, isHamburger }) {
                           </Menu.Item>
                         ))}
                     </Menu>
-                    {/* <ul className="navigation-drawer-list">
-                      <li className="navigation-drawer-item">2019</li>
-                      <li className="navigation-drawer-item">2020</li>
-                      <li className="navigation-drawer-item">2021</li>
-                    </ul> */}
                   </Col>
                 </>
               ))}
-            {/* <Col span={6}>
-              <p className="navigation-drawer-heading">CURRENT AFFAIRS CSS</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-            <Col span={6}>
-              <p className="navigation-drawer-heading">PAKISTAN AFFAIRS CSS</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-            <Col span={6}>
-              <p className="navigation-drawer-heading">PMS KPK SCREENING</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={24}>
-          <Row>
-            <Col span={6}>
-              <p className="navigation-drawer-heading">ISLAMIC STUDIES CSS</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-            <Col span={6}>
-              <p className="navigation-drawer-heading">INSPECTOR FBR</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col>
-
-            <Col span={6}>
-              <p className="navigation-drawer-heading">AD MOD</p>
-              <ul className="navigation-drawer-list">
-                <li className="navigation-drawer-item">2019</li>
-                <li className="navigation-drawer-item">2020</li>
-                <li className="navigation-drawer-item">2021</li>
-              </ul>
-            </Col> */}
           </Row>
         </Col>
       </Row>
@@ -381,69 +288,15 @@ function Navbar({ img, className, isHamburger }) {
                       }}
                     >
                       {cat.name}
-                      <DownOutlined />
+                      {drawerVisible.visible ? (
+                        <UpOutlined />
+                      ) : (
+                        <DownOutlined />
+                      )}
                     </Menu.Item>
                   )}
                 </>
               ))}
-
-            {/* <Menu.Item
-              key="2"
-              onClick={() => {
-                setDrawerVisible({ title: "", visible: false });
-              }}
-            >
-              <Link to="/about">About Us</Link>
-            </Menu.Item>
-            <Menu.Item
-              key="3"
-              onClick={() => {
-                setDrawerVisible({ title: "", visible: false });
-              }}
-            >
-              <Link to="/ongoing-events">Ongoing Events</Link>
-            </Menu.Item>
-            <Menu.Item
-              key="4"
-              onClick={() => {
-                setDrawerVisible({ title: "", visible: false });
-              }}
-            >
-              <Link to="/most-repeated">Most Repeated</Link>
-            </Menu.Item>
-            <Menu.Item
-              key="5"
-              onClick={() => {
-                onDrawerLinkClick("paper");
-              }}
-            >
-              <Link to="/past-papers">
-                Past Papers
-                <DownOutlined />
-              </Link>
-            </Menu.Item>
-            <Menu.Item
-              key="6"
-              onClick={() => {
-                onDrawerLinkClick("essay");
-              }}
-            >
-              <Link to="/essays">
-                Essays
-                <DownOutlined />
-              </Link>
-            </Menu.Item>
-            <Menu.Item
-              key="7"
-              onClick={() => {
-                onDrawerLinkClick("category");
-              }}
-            >
-              <Link to="/categories">
-                Categories
-                <DownOutlined />
-              </Link>
-            </Menu.Item> */}
           </Menu>
         </div>
 
