@@ -24,9 +24,29 @@ function Footer() {
             >
               About
             </Link>
-            <Link>Privacy</Link>
-            <Link>Terms</Link>
-            <Link>Contacts</Link>
+            <Link
+              to="/privacy"
+              onClick={() => {
+                dispatch({
+                  type: "SET_KEY",
+                  payload: { key: "" },
+                });
+              }}
+            >
+              Privacy{"&"}Terms
+            </Link>
+            {/* <Link>Terms</Link> */}
+            <Link
+              to="/contacts"
+              onClick={() => {
+                dispatch({
+                  type: "SET_KEY",
+                  payload: { key: "" },
+                });
+              }}
+            >
+              Contacts
+            </Link>
           </Col>
         </Row>
       </div>

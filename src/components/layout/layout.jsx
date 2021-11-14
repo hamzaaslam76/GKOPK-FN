@@ -9,6 +9,8 @@ import Footer from "../common/footer/footer";
 import About from "../about/about";
 import MostRepeated from "../mostRepeated/mostRepeated";
 import Essay from "../essay/Essay";
+import PrivacyTerms from "../privacy/PrivacyTerms";
+import ContactUs from "../contactUs/ContactUs";
 function Layout() {
   const { Content } = AntLayout;
   const [navSelectedKey, setNavSelectedKey] = useState("0");
@@ -39,6 +41,8 @@ function Layout() {
           <Route path="/ongoing-event" component={MostRepeated} />
           <Route path="/categories" component={MostRepeated} />
           <Route path="/essay" component={Essay} />
+          <Route path="/privacy" component={PrivacyTerms} />
+          <Route path="/contacts" component={ContactUs} />
           <Route path="/" component={Home} />
         </Switch>
       </Content>
