@@ -1,5 +1,5 @@
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
-import { Col, List, Row } from "antd";
+import { Col, List, Radio, Row } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import React, { useState, useEffect } from "react";
 import ecosystemImage from "../../images/ecosystem.png";
@@ -51,10 +51,12 @@ function MostRepeated() {
 
   const hideAnswer = (item) => {
     setAnswerKey(answerKey.filter((key) => key != item._id));
+    setRadioValue(0);
   };
 
   const showAnswer = (item) => {
     setAnswerKey([...answerKey, item._id]);
+    setRadioValue(0);
   };
 
   const getAnswer = (item) => {
@@ -90,6 +92,20 @@ function MostRepeated() {
     setPage(page);
     console.log("page", page, "pageSize", pageSize);
   };
+
+  const [radioValue, setRadioValue] = React.useState(0);
+
+  const onRadioChange = e => {
+    setRadioValue(e.target.value);
+    if(e.target.value == 1){
+      setAnswerKey([])
+    }else if(e.target.value == 2){
+let questionIds = question.map(ques => {
+  return ques._id;
+})
+        setAnswerKey([...questionIds]);
+    }
+  };
   return (
     <div id="about">
       <div className="about-header">
@@ -98,6 +114,10 @@ function MostRepeated() {
         </div>
       </div>
       <div className="most-repeated-content">
+      <Radio.Group onChange={onRadioChange} value={radioValue}>
+      <Radio value={1}>Hide Answers</Radio>
+      <Radio value={2}>Show Answers</Radio>
+    </Radio.Group>
         {/* <section id="home-page__ongoing-events-section"> */}
         <div className="container most-repeated__ongoing-events-section-container">
           {/* <p className="home-page__ongoing-events-section-heading">Ongoing Events</p> */}

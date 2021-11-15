@@ -132,8 +132,12 @@
   color: #222222;
 }
 
-.black-navbar .ant-menu-horizontal > .ant-menu-item span:hover {
+.black-navbar .ant-menu-horizontal > .ant-menu-item span:hover{
   color: #27bbad !important;
+}
+
+.black-navbar .ant-menu-horizontal > .ant-menu-item span:hover .anticon-down svg{
+  fill: #27bbad !important; 
 }
 
 .overlap-menu {
@@ -206,7 +210,7 @@
 .navigation-drawer{
   max-width: 1440px;
   margin: 0 auto;
-  left: -0;
+  /* left: -18px; */
   right:  0;
   z-index: 900;
 }
@@ -282,6 +286,38 @@ margin-right :15px;
   align-items: center;
   padding: 36px 0;
 }
+
+#main-layout {
+  background-color: #ffffff !important;
+}
+
+.navigation-drawer .ant-drawer-body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.navigation-drawer .ant-drawer-body::-webkit-scrollbar-track {
+  background: #f7fafb;        /* color of the tracking area */
+}
+
+.navigation-drawer .ant-drawer-body::-webkit-scrollbar-thumb {
+  background-color: #27bbad;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #f7fafb;  /* creates padding around scroll thumb */
+}
+
+.navbar-item span{
+  margin-left: 5px;
+}
+
+.show-more-button{
+  color : #27bbad;
+  cursor: pointer;
+}
+
+/* 
+.papers-drawer-body .ant-col,.papers-drawer-body .ant-menu{
+  text-align: center;
+} */
 
 @media only screen and (max-width: 1600px) {
   .header .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,

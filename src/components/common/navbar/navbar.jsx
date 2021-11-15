@@ -164,13 +164,12 @@ function Navbar({ img, className, isHamburger }) {
 
   const setPapersDrawerContent = (cat) => {
     setDrawerContent(
-      <Row>
+      <Row className="papers-drawer-body">
         <Col span={24}>
           <Row>
             {cat &&
               cat.subMenu.length > 0 &&
               cat.subMenu.map((item) => (
-                <>
                   <Col span={6}>
                     <p className="navigation-drawer-heading">{item.name}</p>
                     <Menu
@@ -179,17 +178,30 @@ function Navbar({ img, className, isHamburger }) {
                       onClick={(e) => handelItem(e, item.name)}
                     >
                       {item.subMenu.length > 0 &&
-                        item.subMenu.map((sub) => (
-                          <Menu.Item
-                            className="navigation-drawer-item"
-                            key={sub._id}
-                          >
-                            {sub.name}
-                          </Menu.Item>
-                        ))}
+                        item.subMenu.map((sub,index) => {
+                          if(index < 3){
+                            return (<Menu.Item
+                              className="navigation-drawer-item"
+                              key={sub._id}
+                            >
+                              {sub.name}
+                            </Menu.Item>)
+                          }
+                          if(index > 3){
+                            return (<Menu.Item
+                              className="navigation-drawer-item"
+                              key={sub._id}
+                            >
+                              {sub.name}
+                            </Menu.Item>)
+                          }
+                          if(index == 3){
+                            return <p className="navigation-drawer-item show-more-button">Show more</p>
+                          }
+
+  })}
                     </Menu>
                   </Col>
-                </>
               ))}
           </Row>
         </Col>

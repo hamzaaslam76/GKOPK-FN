@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+body{
+  width : 100% !important
+}
+
 @media only screen and (min-width: 1440px) {
   .App {
     max-width: 1440px;
