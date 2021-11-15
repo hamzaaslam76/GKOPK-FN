@@ -1,37 +1,39 @@
-.gkopk-pagination .ant-pagination-item, .gkopk-pagination .ant-pagination-item-link{
-border:0px;
+.gkopk-pagination .ant-pagination-item,
+.gkopk-pagination .ant-pagination-item-link {
+	border: 0px;
 }
 
-.gkopk-pagination{
-    color: #B2B2B2;
-    font-family: "Poppins",sans-serif;
-    font-size: 0.906rem;
-    font-weight: 500;
-    line-height: 1.313rem;
+.gkopk-pagination {
+	color: #b2b2b2;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.906rem;
+	font-weight: 500;
+	line-height: 1.313rem;
 }
 
-.gkopk-pagination .ant-pagination-item-link:hover svg{
-    fill : #27BBAD;
+.gkopk-pagination .ant-pagination-item-link:hover svg {
+	fill: #27bbad;
 }
 
-.gkopk-pagination a:hover{
-    color : #27BBAD;
+.gkopk-pagination a:hover,
+.gkopk-pagination .ant-pagination-item-active {
+	color: #27bbad;
 }
 
-.gkopk-pagination .ant-select:hover .ant-select-selector{
-    border-color :#27BBAD;
+.gkopk-pagination .ant-select:hover .ant-select-selector {
+	border-color: #27bbad;
 }
 
-.gkopk-pagination a{
-    color : inherit;
+.gkopk-pagination a {
+	color: inherit;
 }
 
-.gkopk-pagination svg{
-    fill : #B2B2B2;
+.gkopk-pagination svg {
+	fill: #b2b2b2;
 }
 
-.gkopk-pagination .ant-select{
-    color: inherit;
-    font-size: inherit;
-    line-height:inherit;
+.gkopk-pagination .ant-select {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
 }
